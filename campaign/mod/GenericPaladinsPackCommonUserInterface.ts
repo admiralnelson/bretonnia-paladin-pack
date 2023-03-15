@@ -1,4 +1,4 @@
-namespace MyProject {
+namespace GenericPaladinsPack {
 
     /**
      * Displays alert dialog box
