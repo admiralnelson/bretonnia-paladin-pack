@@ -27,6 +27,8 @@ robocopy script *.lua /s /V /XD .git script node_modules .vscode /XF *.ts > NUL
 mkdir script\_lib\mod 2> NUL
 copy runtime\*.* script\_lib\mod > NUL
 
+exit
+
 :pause
 pause
 
