@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "Virtual TW Source Files",
+			"uri": "twsource:/"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#12266F",
+			"titleBar.activeBackground": "#19359B",
+			"titleBar.activeForeground": "#FAFBFE"
+		}
+	}
+}

@@ -1,0 +1,449 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<PortraitSettings version="4">
+    <Entry id="admiralnelson_brt_generic_paladin_2handed_art_key_1">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_2handed_land_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_1.png</FileDiffuse>
+                <FileMask1></FileMask1> <!--All three masks are optional-->
+                <FileMask2></FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+	<Entry id="admiralnelson_brt_generic_paladin_2handed_art_key_2">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_2handed_land_variant_key_2">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_2.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_2_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_2_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+	<Entry id="admiralnelson_brt_generic_paladin_2handed_art_key_3">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_2handed_land_variant_key_3">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_3.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_3_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_3_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+	<Entry id="admiralnelson_brt_generic_paladin_2handed_art_key_4">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_2handed_land_variant_key_4">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_4.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_4_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_4_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+	<Entry id="admiralnelson_brt_generic_paladin_2handed_art_key_5">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_2handed_land_variant_key_5">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_5.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_5_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_5_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+
+    <!-- normal paladins -->
+	<Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_1">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_1">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_6.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_6_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_6_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_2">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_2">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_7.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_7_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_7_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_3">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_3">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_8.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_8_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_8_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_4">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_4">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_9.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_9_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2></FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_5">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_5">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_10.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_10_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_10_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_6">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_6">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_11.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_11_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_11_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_7">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_7">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_12.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_12_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_12_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_8">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_8">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_13.png</FileDiffuse>
+                <FileMask1></FileMask1>	<!--All three masks are optional-->
+                <FileMask2></FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_9">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_9">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_14.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_14_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_14_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <Entry id="admiralnelson_brt_generic_paladin_sword_shield_art_key_10">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_sword_shield_land_variant_key_10">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_paladin_15.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_paladin_15_mask1.png</FileMask1>	<!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_paladin_15_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    
+    <!-- big dukes -->
+    <Entry id="admiralnelson_brt_generic_paladin_massif_2handed_art_key_1">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_massif_2handed_land_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_1.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_1_mask1.png</FileMask1> <!--All three masks are optional-->
+                <FileMask2></FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+        <Entry id="admiralnelson_brt_generic_paladin_massif_2handed_art_key_2">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_massif_2handed_land_2_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_2.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_2_mask1.png</FileMask1> <!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_2_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+        <Entry id="admiralnelson_brt_generic_paladin_massif_2handed_art_key_3">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_massif_2handed_land_3_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_3.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_3_mask1.png</FileMask1> <!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_3_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+    <!-- shields -->
+        <Entry id="admiralnelson_brt_generic_paladin_massif_sword_shield_art_key_1">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_massif_sword_shield_land_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_4.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_4_mask1.png</FileMask1> <!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_4_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+        <Entry id="admiralnelson_brt_generic_paladin_massif_sword_shield_art_key_2">
+        <CameraSettings>
+            <Distance_Head>0.8</Distance_Head>
+            <Theta_Head>0</Theta_Head>
+            <Phi_Head>0</Phi_Head>
+            <FoV_Head>0</FoV_Head>
+			<Distance_2>30</Distance_2>
+			<Distance_Body>4</Distance_Body><!--optional-->
+            <Theta_Body>0</Theta_Body><!--optional-->
+            <Phi_Body>0</Phi_Body><!--optional-->
+            <FoV_Body>0</FoV_Body><!--optional-->
+			<Distance_2_Body>30</Distance_2_Body><!--optional-->
+        </CameraSettings>
+		<Variants>
+			<Variant id="admiralnelson_brt_generic_paladin_massif_sword_shield_2_land_variant_key">
+                <FileDiffuse>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_5.png</FileDiffuse>
+                <FileMask1>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_5_mask1.png</FileMask1> <!--All three masks are optional-->
+                <FileMask2>UI/Portraits/Portholes/admiralnelson/bret_massif_paladin_5_mask2.png</FileMask2>	<!--All three masks are optional-->
+                <FileMask3></FileMask3>	<!--All three masks are optional-->
+            </Variant>
+        </Variants>
+    </Entry>
+
+</PortraitSettings>

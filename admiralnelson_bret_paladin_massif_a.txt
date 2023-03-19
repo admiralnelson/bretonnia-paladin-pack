@@ -1,0 +1,4 @@
+agent champion wh_main_brt_paladin
+agent champion admiralnelson_bret_paladin_massif_agent_key
+agent champion admiralnelson_bret_paladin_massif_sword_shield_agent_key
+agent champion admiralnelson_bret_paladin_2handed_agent_key
