@@ -108,6 +108,12 @@ namespace GenericPaladinsPack {
         return cm.turn_number()
     }
 
+    export function LuaStringMatcher(input: string, pattern: string): string[] {
+        const matcher = string.gmatch(input, pattern)
+        return matcher()
+    }
+    
+
     class TimedCallback {
         private id = 0
         private interval = 0

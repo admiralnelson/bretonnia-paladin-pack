@@ -94,8 +94,7 @@ namespace GenericPaladinsPack {
      * ICharacterScript wrapper. It allows you to query and manipulate your lords and heroes in OOP style rather than relying cm APIs
      */
     export class Character {
-        protected characterObj: ICharacterScript | null = null
-
+        protected CommanQueueNumberID = -1
         /**
          * Not recommended to instantiate this directly. Use `FindCharacter` or `WrapICharacterObjectToCharacter` function instead. 
          * Or use `Lord` or `Champion` class instead.
@@ -112,7 +111,7 @@ namespace GenericPaladinsPack {
                     if(!options.suppressLog) CharacterLogger.LogError(`options.characterObject is a INullScript!`)
                     throw(`options.characterObject is a INullScript!`)
                 }
-                this.characterObj = options.characterObject
+                this.CommanQueueNumberID = options.characterObject.command_queue_index()
                 return
             }
             if(options.agentSubtypeKey) {
@@ -162,7 +161,7 @@ namespace GenericPaladinsPack {
                     (context) => {
                         const theChar = context.character ? context.character() : null
                         if(theChar == null) return
-                        this.characterObj = theChar
+                        this.CommanQueueNumberID = theChar.command_queue_index()                        
                         clearInterval(throwErrorLatent)
                     }, 
                     false
@@ -237,11 +236,29 @@ namespace GenericPaladinsPack {
         }
 
         /**
+         * Get the character thumbnail/2d porthole filename
+         */
+        public get ThumbnailFileName(): string {
+            const ccoFaction = cco(`CcoCampaignFaction`, this.FactionKey)
+            if(ccoFaction == null) return ``
+            const characterListLength = ccoFaction.Call(`CharacterList.Size`)
+            if(characterListLength == null) return ``
+            const characterListLengthNum = characterListLength as number
+            for (let i = 0; i < characterListLengthNum; i++) {
+                const characterCqi = ccoFaction.Call(`CharacterList[${i}].CQI`) as number
+                if(characterCqi == this.CqiNo) {
+                    return ccoFaction.Call(`CharacterList[${i}].PortraitPath`) as string
+                }
+            }
+            return ``
+        }
+
+        /**
          * Replaces the underlying Character interface
          * @param newLord 
          */
         public SetInternalInterface(newLord: ICharacterScript) {
-            this.characterObj = newLord
+            this.CommanQueueNumberID = newLord.command_queue_index()
         }
 
         /**
@@ -250,15 +267,18 @@ namespace GenericPaladinsPack {
          * @returns ICharacterScript
          */
         public GetInternalInterface(): ICharacterScript {
-            if(this.characterObj == null) {
-                CharacterLogger.LogError(`this.characterObj is null, maybe it was not created? check console logs`)
-                throw(`this.characterObj is null, maybe it was not created? check console logs`)
+            if(this.CommanQueueNumberID == -1) {
+                CharacterLogger.LogError(`this.CommanQueueNumberID is -1, maybe it was not created? check console logs`)
+                throw(`this.CommanQueueNumberID is -1, maybe it was not created? check console logs`)
             }
             if(!this.IsValid()) {
-                CharacterLogger.LogError(`this.characterObj is INullScript, maybe it was killed? check console logs`)
+                CharacterLogger.LogError(`this.CommanQueueNumberID is INullScript, maybe it was killed? check console logs`)
                 throw(`this.characterObj is INullScript, maybe it was killed? check console logs`)
             }
-            return this.characterObj           
+            if(cm.get_character_by_cqi(this.CommanQueueNumberID) != false)                
+                return cm.get_character_by_cqi(this.CommanQueueNumberID) as ICharacterScript       
+            else
+                throw `unreachable statement`
         }
 
         /** gets the faction that belongs to this character, wrapped in Faction object */
@@ -407,7 +427,7 @@ namespace GenericPaladinsPack {
 
         /** (Getter) Command queue index number */
         public get CqiNo() : number {
-            return this.GetInternalInterface().command_queue_index()
+            return this.CommanQueueNumberID
         }
 
         /** (Getter) is the character in valid region? */
@@ -433,7 +453,7 @@ namespace GenericPaladinsPack {
          * @returns 
          */
         public IsValid(): boolean {
-            return (this.characterObj != null) && !this.characterObj.is_null_interface()
+            return  cm.get_character_by_cqi(this.CqiNo) != false
         }
 
         /**
@@ -520,6 +540,26 @@ namespace GenericPaladinsPack {
             cm.replenish_action_points(cm.char_lookup_str(this.GetInternalInterface()))
         }
 
+        /**
+         * Grant the specified ancillary to this character
+         * @param anciliaryKey Grant the specified ancillary to the specified character.
+         * @param forceEquip if true the ancillary will be equipped and bypass any cooldowns or pre-conditions
+         * @param supressEventFeed if true no event feed events will be generated by this action
+         */
+        public AddAnciliary(anciliaryKey: string, forceEquip: boolean = false, supressEventFeed: boolean = true) {
+            cm.force_add_ancillary(this.GetInternalInterface(), anciliaryKey, forceEquip, supressEventFeed)
+        }
+        
+        /**
+         * Remove the specified ancilliary from this character
+         * @param anciliaryKey Ancillary key, from the ancillaries table.
+         * @param putItBackToPool Removes the ancillary from the character but leaves it in the pool of available ancillaries.
+         * @param supressEventFeed emoves the ancillary from the character but leaves it in the pool of available ancillaries.
+         */
+        public RemoveAnciliary(anciliaryKey: string, putItBackToPool: boolean = true, supressEventFeed: boolean = true) {
+            cm.force_remove_ancillary(this.GetInternalInterface(), anciliaryKey, putItBackToPool, supressEventFeed)
+        }
+
         /** returns the agentsubtype key of this object */
         public toString(): string {
             if(!this.IsValid()) return ""
@@ -580,24 +620,24 @@ namespace GenericPaladinsPack {
             }
             if(options.characterObject) {
                 super({})
-                this.characterObj = options.characterObject
+                this.CommanQueueNumberID = options.characterObject.command_queue_index()
                 if(options.characterObject.is_null_interface()) {
                     if(!options.suppressLog) CharacterLogger.LogError(`options.characterObject is a INullScript!`)
                     throw(`options.characterObject is a INullScript!`)
                 }
-                if(!cm.char_is_general(this.characterObj)) {
-                    if(!options.suppressLog) CharacterLogger.LogError(`the supplied character ${this.characterObj.character_subtype_key()} is not a type of "general"!`)
-                    throw(`the supplied character ${this.characterObj.character_subtype_key()} is not a type of "general"!`)
+                if(!cm.char_is_general(this.GetInternalInterface())) {
+                    if(!options.suppressLog) CharacterLogger.LogError(`the supplied character ${this.GetInternalInterface().character_subtype_key()} is not a type of "general"!`)
+                    throw(`the supplied character ${this.GetInternalInterface().character_subtype_key()} is not a type of "general"!`)
                 }
             }
             else if(options.cqi) {
                 super({})
                 const theChar = cm.get_character_by_cqi(options.cqi)
                 if(theChar) {                    
-                    this.characterObj = theChar
-                    if(!cm.char_is_general(this.characterObj)) {
-                        if(!options.suppressLog) CharacterLogger.LogError(`the supplied character ${this.characterObj.character_subtype_key()} is not a type of "general"!`)
-                        throw(`the supplied character ${this.characterObj.character_subtype_key()} is not a type of "general"!`)
+                    this.CommanQueueNumberID = theChar.command_queue_index()
+                    if(!cm.char_is_general(this.GetInternalInterface())) {
+                        if(!options.suppressLog) CharacterLogger.LogError(`the supplied character ${this.GetInternalInterface().character_subtype_key()} is not a type of "general"!`)
+                        throw(`the supplied character ${this.GetInternalInterface().character_subtype_key()} is not a type of "general"!`)
                     }
                 }
                 else {
@@ -615,7 +655,7 @@ namespace GenericPaladinsPack {
                 })
             }
             this.lordCreatedCallback = options.lordCreatedCallback
-            if(this.characterObj) {
+            if(options.characterObject) {
                 if(this.lordCreatedCallback) this.lordCreatedCallback(this, "WrappingExistingObject")
             }
             
@@ -652,6 +692,16 @@ namespace GenericPaladinsPack {
                 
             }
             return result
+        }
+
+        /**
+         * Remove troops from this Lord
+         * @param mainUnitKey keys from main_units table
+         */
+        public RemoveTroops(mainUnitKey: string[]) {
+            for (const troop of mainUnitKey) {
+                cm.remove_unit_from_character(cm.char_lookup_str(this.GetInternalInterface()), troop)
+            }
         }
 
         /**
@@ -708,24 +758,24 @@ namespace GenericPaladinsPack {
             }
             if(options.characterObject) {
                 super({})
-                this.characterObj = options.characterObject
+                this.CommanQueueNumberID = options.characterObject.command_queue_index()
                 if(options.characterObject.is_null_interface()) {
                     if(!options.suppressLog) CharacterLogger.LogError(`options.characterObject is a INullScript!`)
                     throw(`options.characterObject is a INullScript!`)
                 }
-                if(!cm.char_is_agent(this.characterObj)) {
-                    if(options.suppressLog) CharacterLogger.Log(`cannot wrap this character ${this.characterObj.character_subtype_key()} as it's not an agent, aborting`)
-                    throw(`cannot wrap this character ${this.characterObj.character_subtype_key()} as it's not an agent, aborting`)
+                if(!cm.char_is_agent(this.GetInternalInterface())) {
+                    if(options.suppressLog) CharacterLogger.Log(`cannot wrap this character ${this.GetInternalInterface().character_subtype_key()} as it's not an agent, aborting`)
+                    throw(`cannot wrap this character ${this.GetInternalInterface().character_subtype_key()} as it's not an agent, aborting`)
                 }
             }
             else if(options.cqi) {
                 super({})
                 const theChar = cm.get_character_by_cqi(options.cqi)
                 if(theChar) {
-                    this.characterObj = theChar 
-                    if(!cm.char_is_agent(this.characterObj)) {
-                        if(options.suppressLog) CharacterLogger.Log(`cannot wrap this character ${this.characterObj.character_subtype_key()} as it's not an agent, aborting`)
-                        throw(`cannot wrap this character ${this.characterObj.character_subtype_key()} as it's not an agent, aborting`)
+                    this.CommanQueueNumberID = theChar.command_queue_index() 
+                    if(!cm.char_is_agent(this.GetInternalInterface())) {
+                        if(options.suppressLog) CharacterLogger.Log(`cannot wrap this character ${this.GetInternalInterface().character_subtype_key()} as it's not an agent, aborting`)
+                        throw(`cannot wrap this character ${this.GetInternalInterface().character_subtype_key()} as it's not an agent, aborting`)
                     }
                 }else {
                     if(options.suppressLog) CharacterLogger.LogError(`this cqi ${options.cqi} is invalid cqi`)
@@ -747,7 +797,7 @@ namespace GenericPaladinsPack {
                 })
             }
             this.championCreatedCallback = options.championCreatedCallback
-            if(this.characterObj) {
+            if(options.characterObject) {
                 if(this.championCreatedCallback) this.championCreatedCallback(this, "WrappingExistingObject")
             }
             
