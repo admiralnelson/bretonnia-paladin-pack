@@ -96,6 +96,10 @@ namespace GenericPaladinsPack {
         return result >= threshold
     }
 
+    export function PercentageRoll(percentage: number) {
+        return IsDiceRollSucess(100 - percentage, 1, 100)
+    }
+
     /**
      * Returns true or false. 50% chance
      */
