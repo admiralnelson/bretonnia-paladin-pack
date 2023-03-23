@@ -225,6 +225,12 @@ namespace GenericPaladinsPack {
             return this.factionInterface.name()
         }
 
+        /** (getter) get localised name */
+        public get LocalisedName(): string {
+            const name = `factions_screen_name_${this.FactionKey}`
+            return common.get_localised_string(name)
+        }
+
         public toString(): string {
             return this.FactionKey
         }
