@@ -560,6 +560,13 @@ namespace GenericPaladinsPack {
             cm.force_remove_ancillary(this.GetInternalInterface(), anciliaryKey, putItBackToPool, supressEventFeed)
         }
 
+        /**
+         * Returns character rank/level
+         */
+        public get Rank(): number {
+            return this.GetInternalInterface().rank()
+        }
+
         /** returns the agentsubtype key of this object */
         public toString(): string {
             if(!this.IsValid()) return ""
