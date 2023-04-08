@@ -51,6 +51,13 @@ namespace GenericPaladinsPack {
 	    [PROTECT_PELDGE_TRAIT] : 2,  //1
     }
 
+    const ADM_NELSON_GRAIL_PALADINS_DATA = "ADM_NELSON_GRAIL_PALADINS_DATA"
+
+    type GrailPaladinId = number
+
+    type GrailPaladinSaveData = {
+        GrailPaladins: GrailPaladinId[]
+    }
 
     const MAX_POINTS = 6
 
@@ -62,6 +69,7 @@ namespace GenericPaladinsPack {
         static AllowedAgentKeys : LuaSet<string> = new LuaSet<string>()
         private static bInited = false
 
+        private static GrailPaladinsData: GrailPaladinSaveData | null = null
 
         public static IsKnightsVowOK(character: Character): boolean {
             for (const trait of KNIGHT_VOW_TRAITS) {
@@ -132,9 +140,16 @@ namespace GenericPaladinsPack {
                 core.trigger_event("ScriptEventBretonniaQuestingVowCompleted", character.GetInternalInterface())
             }
             if (traitKey.startsWith("wh_dlc07_trait_brt_grail_vow")  && PaladinVowHandler.IsVowHasPassed(character, traitKey)) {
-                print(`Triggering event for this character ${character.LocalisedFullName}`)
-                character.TriggerIncident(incidentKey)
-                core.trigger_event("ScriptEventBretonniaGrailVowCompleted", character.GetInternalInterface())
+                const characterCqiNr = character.CqiNo
+                if( PaladinVowHandler.GrailPaladinsData && 
+                    PaladinVowHandler.GrailPaladinsData.GrailPaladins && 
+                   !PaladinVowHandler.GrailPaladinsData.GrailPaladins.includes(characterCqiNr))
+                   {
+                        print(`Triggering event for this character ${character.LocalisedFullName}`)
+                        character.TriggerIncident(incidentKey)
+                        core.trigger_event("ScriptEventBretonniaGrailVowCompleted", character.GetInternalInterface())
+                        PaladinVowHandler.SerialisedGrailPaladins()
+                   }
             }
         }
 
@@ -468,18 +483,102 @@ namespace GenericPaladinsPack {
             }
 
             logger.LogWarn(`vow was reset to ${vow} for this character ${character.LocalisedFullName}\n list of traits ${JSON.stringify(character.Traits)}`)
+        }
 
+        private static GrailPaladinsLevelUpForBot(charater: Character): void {
+            const agentSubtypeKey = charater.SubtypeKey
+            if(charater.Faction.IsHuman) return
+            if(!PaladinVowHandler.AllowedAgentKeys.has(agentSubtypeKey)) return
+            if(this.IsGrailVowOK(charater)) return
 
+            const rank = charater.Rank
+            logger.Log(`this paladin ${charater.LocalisedFullName}'s vow (current level ${rank}) will be upgraded to:`)
+            if(IsBetween(rank, 2, 5)) {
+                this.ResetVow(charater, "knightvow")
+                logger.Log(`knightvow`)
+            } else if (IsBetween(rank, 6, 8)) {
+                this.ResetVow(charater, "questingvow")
+                logger.Log(`questingvow`)
+            } else if (rank >= 9) {
+                this.ResetVow(charater, "complete")
+                logger.Log(`complete`)
+                PaladinVowHandler.SerialisedGrailPaladins()
+            }
+        }
+
+        private static UpdateAllGrailPaladinsForBot(): void {
+            logger.Log(`updating grail paladins state for bots`)
+            for (const factionKey of BretonnianFactionsKeys) {
+                const faction = GetFactionByKey(factionKey) 
+                if(faction && !faction.IsHuman) {
+                    const paladinsInFaction = faction.Characters.filter ( champion => PaladinHeroAgentKeys.includes(champion.SubtypeKey) )
+                    if(paladinsInFaction) {
+                        for (const character of paladinsInFaction) {
+                            PaladinVowHandler.GrailPaladinsLevelUpForBot(character)
+                        }
+                    }
+                }
+            }
+            logger.Log(`updating grail paladins state for bots: done`)
+        }
+
+        private static SerialisedGrailPaladins(): void {
+            let paladins: Character[] = []
+            for (const factionKey of BretonnianFactionsKeys) {
+                const faction = GetFactionByKey(factionKey) 
+                if(faction) {
+                    const paladinsInFaction = faction.Characters.filter ( champion => PaladinVowHandler.AllowedAgentKeys.has(champion.SubtypeKey) )
+                    if(paladinsInFaction)
+                        paladins = paladins.concat(paladinsInFaction)
+                }
+            }
+
+            let paladinCqiNr = []
+            for (const paladin of paladins) {
+                paladinCqiNr.push(paladin.CqiNo)
+            }
+
+            const paladinData = {
+                GrailPaladins: paladinCqiNr
+            }
+
+            PaladinVowHandler.GrailPaladinsData = paladinData
+
+            const data =  JSON.stringify(PaladinVowHandler.GrailPaladinsData)
+            localStorage.setItem(ADM_NELSON_GRAIL_PALADINS_DATA, data)
+            logger.LogWarn(`saving grail paladin data: ${data}`)
+        }
+
+        private static DeserialisedGrailPaladins(): void {
+            if(localStorage.getItem(ADM_NELSON_GRAIL_PALADINS_DATA) == null) {
+                PaladinVowHandler.SerialisedGrailPaladins()
+                return
+            }
+
+            const data = localStorage.getItem(ADM_NELSON_GRAIL_PALADINS_DATA) as string
+            if(data) {
+                logger.Log(`loading grail paladin data: ${data}`)
+                try {
+                    const parsed = JSON.parse(data) as GrailPaladinSaveData
+                    PaladinVowHandler.GrailPaladinsData = parsed
+                } catch (e) {
+                    logger.LogError(`unable to parse: reason ${e} `)
+                }
+            }
 
         }
 
         static Init() {
             if(PaladinVowHandler.bInited) return
+            
+            if(localStorage.getItem(ADM_NELSON_GRAIL_PALADINS_DATA) == null) {
+                logger.LogWarn(`${ADM_NELSON_GRAIL_PALADINS_DATA} tag was not found. updating all grail paladins for bot...`)
+                PaladinVowHandler.UpdateAllGrailPaladinsForBot()
+            }
+            PaladinVowHandler.DeserialisedGrailPaladins()
 
-            PaladinVowHandler.bInited = true
             print("ready")
-
-
+            PaladinVowHandler.bInited = true
             //knights vow
             core.add_listener(
                 "generic paladin admiralnelson_research_completed_pledge_to_knowledge",
@@ -513,6 +612,17 @@ namespace GenericPaladinsPack {
                 true
             )
 
+            core.add_listener(
+                "generic paladin upgrade rank for bot",
+                "CharacterRankUp",
+                true,
+                (context: IContext) => {
+                    if(context.character == null) return
+                    const character = WrapICharacterObjectToCharacter(context.character()) 
+                    PaladinVowHandler.GrailPaladinsLevelUpForBot(character)
+                }, 
+                true
+            )
 
             //questing vows
             core.add_listener(
