@@ -533,7 +533,7 @@ namespace GenericPaladinsPack {
                 }
             }
 
-            let paladinCqiNr = []
+            const paladinCqiNr = []
             for (const paladin of paladins) {
                 paladinCqiNr.push(paladin.CqiNo)
             }
