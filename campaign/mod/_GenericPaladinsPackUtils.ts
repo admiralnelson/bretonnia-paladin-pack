@@ -117,6 +117,9 @@ namespace GenericPaladinsPack {
         return matcher()
     }
     
+    export function IsBetween(value: number, min: number, max: number): boolean {
+        return value >= min && value <= max
+    }
 
     class TimedCallback {
         private id = 0
