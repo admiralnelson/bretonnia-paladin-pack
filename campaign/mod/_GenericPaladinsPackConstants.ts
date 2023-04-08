@@ -36,6 +36,10 @@ namespace GenericPaladinsPack {
         "admiralnelson_bret_paladin_massif_sword_shield_agent_key",
     ]
 
-    export const PaladinHeroAgentKeys = NormalPaladins.concat(MassifPaladins)
+    export const ThirdPartiesPaladins = [
+        `ubr_brt_geg`
+    ]
+
+    export const PaladinHeroAgentKeys = NormalPaladins.concat(MassifPaladins.concat(ThirdPartiesPaladins))
 
 }
