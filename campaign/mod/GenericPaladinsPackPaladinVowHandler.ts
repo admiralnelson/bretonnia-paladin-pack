@@ -512,7 +512,7 @@ namespace GenericPaladinsPack {
                 const faction = GetFactionByKey(factionKey) 
                 if(faction && !faction.IsHuman) {
                     const paladinsInFaction = faction.Characters.filter ( champion => PaladinHeroAgentKeys.includes(champion.SubtypeKey) )
-                    if(paladinsInFaction) {
+                    if(paladinsInFaction != null) {
                         for (const character of paladinsInFaction) {
                             PaladinVowHandler.GrailPaladinsLevelUpForBot(character)
                         }
@@ -526,9 +526,9 @@ namespace GenericPaladinsPack {
             let paladins: Character[] = []
             for (const factionKey of BretonnianFactionsKeys) {
                 const faction = GetFactionByKey(factionKey) 
-                if(faction) {
+                if(faction != null) {
                     const paladinsInFaction = faction.Characters.filter ( champion => PaladinVowHandler.AllowedAgentKeys.has(champion.SubtypeKey) )
-                    if(paladinsInFaction)
+                    if(paladinsInFaction != null)
                         paladins = paladins.concat(paladinsInFaction)
                 }
             }
@@ -556,7 +556,7 @@ namespace GenericPaladinsPack {
             }
 
             const data = localStorage.getItem(ADM_NELSON_GRAIL_PALADINS_DATA) as string
-            if(data) {
+            if(data != null) {
                 logger.Log(`loading grail paladin data: ${data}`)
                 try {
                     const parsed = JSON.parse(data) as GrailPaladinSaveData
