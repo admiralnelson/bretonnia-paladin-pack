@@ -206,7 +206,7 @@ namespace GenericPaladinsPack {
          * @param skillKey Skill key to add from skill tables
          */
         public AddSkill(skillKey: string) {
-            cm.force_add_skill(cm.char_lookup_str(this.GetInternalInterface()), skillKey)
+            cm.add_skill(cm.char_lookup_str(this.GetInternalInterface()), skillKey)
         }
 
         /**

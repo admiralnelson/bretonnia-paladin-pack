@@ -919,7 +919,7 @@ interface ICampaignManager {
      * @param stringLookUp Character lookup string. For more information, see Character Lookups.
      * @param skillKey Skill key, from the character_skills table.
     */
-    force_add_skill(stringLookUp: string, skillKey: string): void
+    add_skill(stringLookUp: string, skillKey: string): void
     /**
      * Attempts to trigger an incident from database records with one or more target game objects. 
      * The game object or objects to associate the incident with are specified by command-queue index. 
@@ -1202,7 +1202,12 @@ This function can also reposition the camera, so it's best used on game creation
 /** context of the callback or conditional checks, get your faction, char, etc. from here */
 interface IContext {
     string?: string
-
+    /**
+     * This member is available for this following events:
+     * 
+     * - UITrigger
+     */
+    trigger?(): string
     /**
      * This member is available for this following events:
      * 
@@ -1534,10 +1539,27 @@ interface ICore {
     get_or_create_component(name: string,  filePath: string, parent?: IUIComponent): LuaMultiReturn<[createdUIComponent: IUIComponent, success: boolean]>    
 }
 
+
+interface ICampaignUI {
+    /**
+     * Allows the script running on one machine in a multiplayer game to cause a scripted event, UITrigger, to be triggered on all machines in that game. By listening for this event, scripts on all machines in a multiplayer game can therefore respond to a UI event occuring on just one of those machines.  
+     * An optional string event id and number faction cqi may be specified.   
+     * If specified, these values are passed from the triggering script through to all listening scripts, using the context objects supplied with the events.   
+     * The event id (rpcEventString) may be accessed by listening scripts by calling `<context>.trigger()` on the supplied context object, and can be used to identify the script event being triggered.   
+     * The faction cqi may be accessed by calling `<context>.faction_cqi()` on the context object, and can be used to identify a faction associated with the event.  
+     * Both must be specified, or neither.
+     * @param factionCqi 
+     * @param rpcEventString 
+     */
+    TriggerCampaignScriptEvent(factionCqi: number, rpcEventString: string): void
+}
+
 declare const cm: ICampaignManager
 declare const core: ICore
 declare const common: ICcoScriptObject
 declare const real_timer: IRealTimer
+declare const CampaignUI: ICampaignUI
+
 
 interface IDebugger {
     enterDebugLoop(this: void, stackDepth: number, whatMessage: string): void
