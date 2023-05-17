@@ -320,7 +320,7 @@ namespace GenericPaladinsPack {
                     return
                 }
 
-                if(PaladinVowHandler.AllowedAgentKeys.has(character.SubtypeKey)) {
+                if(!PaladinVowHandler.AllowedAgentKeys.has(character.SubtypeKey)) {
                     alert(`this paladin uses vow system that is not managed by PaladinVowHandler`)
                     return
                 }
